@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<link href="~/Content/themes/base/minified/jquery-ui.min.css" rel="stylesheet"/>
+<link href="~/Scripts/jtable/themes/metro/blue/jtable.min.css" rel="stylesheet"/>
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Getting started</h2>
+        <div id="OrdersTableContainer"></div>
+        <br/>
+        <table id="OrdersJTable" class="jt-config" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
+            <tr>
+                <th data-jt-list="false">OrderId</th>
+                <th data-jt-width="40%" data-jt-column="ShipName">Firm</th>
+                <th data-jt-width="20%">Ship Country</th>
+                <th data-jt-width="20%" data-jt-type="date">Order Date</th>
+                <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
+            </tr>
+        </table>
+        <br/>
+        <table id="OrdersJTable2" class="jt-config" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
+            <tr>
+                <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
+                <th data-jt-width="40%" data-jt-column="ShipName">Ship Name</th>
+                <th data-jt-width="20%" data-jt-column="ShipCountry">Ship Country</th>
+                <th data-jt-width="20%" data-jt-type="date" data-jt-column="OrderDate">Order Date</th>
+                <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
+            </tr>
+        </table>
+
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
+    <script src="~/Scripts/jtable/jquery.jtable.min.js"></script>
+    <script src="~/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes.js"></script>
+
+    <script type="text/javascript">
+
+
+
+        $(function() {
+            $('#OrdersTableContainer')
+                .jtable({
+                    title: 'Orders list',
+                    paging: false, //Enable paging
+                    //pageSize: 10, //Set page size (default: 10)
+                    sorting: false, //Enable sorting
+                    //defaultSorting: 'Order Date DESC', //Set default sorting
+                    actions: {
+                        listAction: '@Url.Action("Orders")'
+                    },
+                    fields: {
+                        'OrderId': {
+                            key: true,
+                            list: false
+                        },
+                        'ShipName': {
+                            title: 'Firm',
+                            width: '40%'
+                        },
+                        'ShipCountry': {
+                            title: 'Country',
+                            width: '20%'
+                        },
+                        'OrderDate': {
+                            title: 'Order',
+                            width: '20%',
+                            type: 'date'
+                        },
+                        'Shipped': {
+                            title: 'Shipped',
+                            width: '20%',
+                            type: 'checkbox',
+                            values: { 'false': 'False', 'true': 'True' }
+                        }
+                    }
+                });
+
+            $('#OrdersTableContainer').jtable('load');
+
+            $.hik.jtable.loadFromAttributes();
+
+        });
+    </script>
+}
