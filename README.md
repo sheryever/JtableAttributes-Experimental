@@ -84,7 +84,7 @@ public class HomeController : Controller
 }
 ```
 
-## Customizing list data
+## Customizing list data using `data-jt-display` attribute in `th`
 ### Html
 ``` Html
   <table id="OrdersJTable2" class="jt-config" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
