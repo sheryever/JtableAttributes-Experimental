@@ -36,6 +36,31 @@ An experiment to load jtable from a html table
   </table>
 ```
 
+## Asp.net MVC
+```C#
+public class HomeController : Controller
+{
+
+  [HttpPost]
+  public ActionResult Orders()
+  {
+      return  Json(new {Result = "OK", Records = GetOrders().Take(10)});
+  }
+
+  [HttpPost]
+  public ActionResult OrdersWithPaging(int jtStartIndex, int jtPageSize)
+  {
+      var order = GetOrders();
+      //var startIndex =  jtStartIndex+jtPageSize;
+      return Json(
+          new { Result = "OK"
+          , Records = GetOrders().Skip(jtStartIndex).Take(jtPageSize)
+          , TotalRecordCount = order.Count });
+  }
+}
+```
+
+
 ```javascript
   <script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
   <script src="~/Scripts/jtable/jquery.jtable.min.js"></script>
