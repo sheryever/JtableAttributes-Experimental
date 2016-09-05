@@ -33,7 +33,9 @@
     	var $config = $('#' + configElementId);
 
     	var jtableConfig = {
-    		title: getSetting($config, 'title', ""),
+    	    title: getSetting($config, 'title', ""),
+    	    paging: getSetting($config, 'paging', false),
+    	    pageSize: getSetting($config, 'page-size', 10),
     		actions: {
     			listAction: getSetting($config, 'list-action', "")
     		},
@@ -69,7 +71,6 @@
 	            fieldConfig.type = getSetting($th, 'type', 'string', fieldConfig,
 	                function($element, val, fieldSettings) {
 	                    if (val === "checkbox") {
-	                        console.log(this);
 	                        fieldSettings.values = {
 	                            'false': getSetting($element, 'false', 'False'),
 	                            'true': getSetting($element, 'true', 'True')

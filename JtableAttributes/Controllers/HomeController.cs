@@ -16,7 +16,18 @@ namespace JtableAttributes.Controllers
         [HttpPost]
         public ActionResult Orders()
         {
-            return  Json(new {Result = "OK", Records = GetOrders()});
+            return  Json(new {Result = "OK", Records = GetOrders().Take(10)});
+        }
+
+        [HttpPost]
+        public ActionResult OrdersWithPaging(int jtStartIndex, int jtPageSize)
+        {
+            var order = GetOrders();
+            //var startIndex =  jtStartIndex+jtPageSize;
+            return Json(
+                new { Result = "OK"
+                , Records = GetOrders().Skip(jtStartIndex).Take(jtPageSize)
+                , TotalRecordCount = order.Count });
         }
 
         public ActionResult About()
@@ -35,25 +46,21 @@ namespace JtableAttributes.Controllers
 
         public IList<Order> GetOrders()
         {
-            return new [] {new Order
+
+            var orders = new List<Order>();
+
+            for (int i = 0; i < 72; i++)
             {
-                OrderId = 1, ShipName = "Ship 1", ShipCountry = "Pakistan", OrderDate = DateTime.Now.AddDays(1), Shipped = true 
-            }, new Order
-            {
-                OrderId = 2, ShipName = "Ship 2", ShipCountry = "Pakistan", OrderDate = DateTime.Now.AddDays(3), Shipped = true
-            }, new Order
-            {
-                OrderId = 3, ShipName = "Ship 3", ShipCountry = "Pakistan", OrderDate = DateTime.Now.AddDays(2), Shipped = false 
-            
-            }, new Order
-            {
-                OrderId = 4, ShipName = "Ship 4", ShipCountry = "Pakistan", OrderDate = DateTime.Now.AddDays(5), Shipped = false 
-            
-            }, new Order
-            {
-                OrderId = 5, ShipName = "Ship 5", ShipCountry = "Pakistan", OrderDate = DateTime.Now.AddDays(3), Shipped = true 
-            
-            } };
+                orders.Add(new Order()
+                {
+                    OrderId = i,
+                    ShipName = "Ship " + i.ToString(),
+                    ShipCountry = "Pakistan",
+                    OrderDate = DateTime.Now.AddDays(i),
+                    Shipped = true
+                });
+            }
+            return orders;
         }
 
 

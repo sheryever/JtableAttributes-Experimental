@@ -14,7 +14,20 @@
 <div class="row">
     <div class="col-md-12">
         <h2>Getting started</h2>
+        <table id="OrdersJTable3" class="jt-config" data-jt-title="Order with paging" data-jt-paging="true" data-jt-page-size="10" data-jt-list-action="@Url.Action("OrdersWithPaging")">
+            <thead>
+                <tr>
+                    <th>OrderId</th>
+                    <th>Ship Name</th>
+                    <th>Ship Country</th>
+                    <th data-jt-type="date">Order Date</th>
+                    <th data-jt-type="checkbox" data-jt-true="Shipped" data-jt-false="Not Shipped">Shipped</th>
+                </tr>
+            </thead>
+        </table>
+        <br/>
         <div id="OrdersTableContainer"></div>
+        
         <br/>
         <table id="OrdersJTable" class="jt-config" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
             <tr>
@@ -35,8 +48,9 @@
                 <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
             </tr>
         </table>
-
-
+        <br/>
+        <br/>
+        
     </div>
 </div>
 
