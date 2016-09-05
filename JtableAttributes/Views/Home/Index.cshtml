@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-md-12">
         <h2>Getting started</h2>
-        <table id="OrdersJTable3" class="jt-config" data-jt-title="Order with paging" data-jt-paging="true" data-jt-page-size="10" data-jt-list-action="@Url.Action("OrdersWithPaging")">
+        <table id="OrdersPagingJTable" class="jt-config" data-jt-title="Order with paging" data-jt-paging="true" data-jt-page-size="10" data-jt-list-action="@Url.Action("OrdersWithPaging")">
             <thead>
                 <tr>
                     <th>OrderId</th>
@@ -32,7 +32,7 @@
         <table id="OrdersJTable" class="jt-config" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
             <tr>
                 <th data-jt-list="false">OrderId</th>
-                <th data-jt-width="40%" data-jt-column="ShipName">Firm</th>
+                <th data-jt-width="40%" data-jt-column="ShipName" >Firm</th>
                 <th data-jt-width="20%">Ship Country</th>
                 <th data-jt-width="20%" data-jt-type="date">Order Date</th>
                 <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
@@ -42,7 +42,7 @@
         <table id="OrdersJTable2" class="jt-config" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
             <tr>
                 <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
-                <th data-jt-width="40%" data-jt-column="ShipName">Ship Name</th>
+                <th data-jt-width="40%" data-jt-column="ShipName" data-jt-display="extraSettings.display">Ship Name</th>
                 <th data-jt-width="20%" data-jt-column="ShipCountry">Ship Country</th>
                 <th data-jt-width="20%" data-jt-type="date" data-jt-column="OrderDate">Order Date</th>
                 <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
@@ -61,7 +61,11 @@
 
     <script type="text/javascript">
 
-
+        var extraSettings = {
+            display: function(data) {
+                return '<a href="/firmsDetail?firmName=' + data.record.ShipName + '">' + data.record.ShipName +'</a>';
+            }
+        }
 
         $(function() {
             $('#OrdersTableContainer')

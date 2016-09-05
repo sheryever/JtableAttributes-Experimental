@@ -62,11 +62,11 @@
 					width: getSetting($th, 'width', '10%'),
 					list: getSetting($th, 'list', true)
 				}
+
 				fieldConfig.key = getSetting($th, 'key', false, fieldConfig,
 	                function(value) {
 	                    keyFound = true;
 	                });
-
 
 	            fieldConfig.type = getSetting($th, 'type', 'string', fieldConfig,
 	                function($element, val, fieldSettings) {
@@ -77,6 +77,8 @@
 	                        }
 	                    }
 	                });
+
+	            fieldConfig.display = eval(getSetting($th, 'display', undefined));
 
 				jtableConfig.fields[fieldName] = fieldConfig;
 			});
