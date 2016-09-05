@@ -24,6 +24,51 @@ An experiment to load jtable from a html table
   </table>
 ```
 
+## Asp.net MVC
+```C#
+public class HomeController : Controller
+{
+
+  [HttpPost]
+  public ActionResult Orders()
+  {
+      return  Json(new {Result = "OK", Records = GetOrders().Take(10)});
+  }
+}
+```
+
+### jtable with paging
+
+```html
+<table id="OrdersJTable3" class="jt-config" data-jt-title="Order with paging" data-jt-paging="true" data-jt-page-size="10"   data-jt-list-action="@Url.Action("OrdersWithPaging")">
+    <thead>
+        <tr>
+            <th>OrderId</th>
+            <th>Ship Name</th>
+            <th>Ship Country</th>
+            <th data-jt-type="date">Order Date</th>
+            <th data-jt-type="checkbox" data-jt-true="Shipped" data-jt-false="Not Shipped">Shipped</th>
+        </tr>
+    </thead>
+  </table>
+```
+## Asp.net MVC
+```C#
+public class HomeController : Controller
+{
+  [HttpPost]
+  public ActionResult OrdersWithPaging(int jtStartIndex, int jtPageSize)
+  {
+      var order = GetOrders();
+      //var startIndex =  jtStartIndex+jtPageSize;
+      return Json(
+          new { Result = "OK"
+          , Records = GetOrders().Skip(jtStartIndex).Take(jtPageSize)
+          , TotalRecordCount = order.Count });
+  }
+}
+```
+
 ```javascript
   <script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
   <script src="~/Scripts/jtable/jquery.jtable.min.js"></script>
