@@ -1,6 +1,8 @@
 # JtableAttributes-Experimental
 
-An experiment to load jtable from a html table
+An experiment to load jtable from a html table.
+
+Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes.js)
 
 ```html
   <table id="OrdersJTable" class="jt-config" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
