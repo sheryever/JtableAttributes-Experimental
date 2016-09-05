@@ -36,6 +36,21 @@ public class HomeController : Controller
   }
 }
 ```
+## javascript code
+```javascript
+  <script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
+  <script src="~/Scripts/jtable/jquery.jtable.min.js"></script>
+  <script src="~/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes.js"></script>
+  
+  <script type="text/javascript">
+  
+      $(function() {
+      
+          $.hik.jtable.loadFromAttributes('.jt-config');
+  
+      });
+  </script>
+```
 
 ### jtable with paging
 
@@ -69,17 +84,3 @@ public class HomeController : Controller
 }
 ```
 
-```javascript
-  <script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
-  <script src="~/Scripts/jtable/jquery.jtable.min.js"></script>
-  <script src="~/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes.js"></script>
-  
-  <script type="text/javascript">
-  
-      $(function() {
-      
-          $.hik.jtable.loadFromAttributes('.jt-config');
-  
-      });
-  </script>
-```
