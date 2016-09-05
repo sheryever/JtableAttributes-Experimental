@@ -84,7 +84,7 @@ public class HomeController : Controller
 }
 ```
 
-## Adding display function in field
+## Adding display function to field
 ### Html
 ``` Html
   <table id="OrdersJTable2" class="jt-config" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
