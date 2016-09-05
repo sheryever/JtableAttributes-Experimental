@@ -12,6 +12,26 @@
 		    }
 		    return defaultVal;
 	    }
+	}
+
+    var JtSettings = function($element, settings) {
+        this.$element = $element;
+        this.settings = settings;
+
+        this.val = function(attr, defaultVal, valFoundCallback, defaultValueCallback) {
+            var val = this.$element.data('jt-' + attribute);
+            if (val !== undefined && val !== null) {
+                if (valFoundCallback) {
+                    valFoundCallback(this.$element, val, this.settings);
+                }
+                return val;
+            } else {
+                if (defaultValueCallback) {
+                    defaultValueCallback(this.$element, val, this.settings);
+                }
+                return defaultVal;
+            }
+        }
     }
 
     $.hik.jtable.loadFromAttributes = function (configClass) {
@@ -32,7 +52,7 @@
     $.hik.jtable.buildConfigFromAttributes = function(configElementId) {
     	var $config = $('#' + configElementId);
 
-    	var jtableConfig = {
+        var jtableConfig = {
     	    title: getSetting($config, 'title', ""),
     	    paging: getSetting($config, 'paging', false),
     	    pageSize: getSetting($config, 'page-size', 10),
