@@ -22,6 +22,18 @@ An experiment to load jtable from a html table
           <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
       </tr>
   </table>
+  <br/>
+  <table id="OrdersJTable3" class="jt-config" data-jt-title="Order with paging" data-jt-paging="true" data-jt-page-size="10"   data-jt-list-action="@Url.Action("OrdersWithPaging")">
+    <thead>
+        <tr>
+            <th>OrderId</th>
+            <th>Ship Name</th>
+            <th>Ship Country</th>
+            <th data-jt-type="date">Order Date</th>
+            <th data-jt-type="checkbox" data-jt-true="Shipped" data-jt-false="Not Shipped">Shipped</th>
+        </tr>
+    </thead>
+  </table>
 ```
 
 ```javascript
