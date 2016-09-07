@@ -1,6 +1,7 @@
 # JtableAttributes-Experimental
 
 An experiment to load jtable from a html table.
+Second idea, all the functions & events should be passed as configuration. (The last one)
 
 Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes.js)
 
@@ -89,10 +90,10 @@ public class HomeController : Controller
 ## Customizing list data using `data-jt-display` attribute in `th`
 ### Html
 ``` Html
-<table id="OrdersJTable2" class="jt-config" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
+<table id="OrdersJTable2" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
     <tr>
         <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
-        <th data-jt-width="40%" data-jt-column="ShipName" data-jt-display="extraSettigns.firmNameDisplay">Ship Name</th>
+        <th data-jt-width="40%" data-jt-column="ShipName">Ship Name</th>
         <th data-jt-width="20%" data-jt-column="ShipCountry">Ship Country</th>
         <th data-jt-width="20%" data-jt-type="date" data-jt-column="OrderDate">Order Date</th>
         <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
@@ -107,15 +108,19 @@ public class HomeController : Controller
 <script src="~/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes.js"></script>
 
 <script type="text/javascript">
-  var extraSettings = {
-    firmNameDisplay: function(data){
-      return '<a href="/firmsDetail?firmName=' + data.record.ShipName + '">' + data.record.ShipName +'</a>';
-    }
-  };
 
     $(function() {
     
-        $.hik.jtable.loadFromAttributes('.jt-config');
+        $('#OrdersJTable2').jtable({ fields: {
+                OrderId: {
+                    display: function(data) {
+                        return '<a href="/firmsDetail?firmName=' + data.record.OrderId + '">' + data.record.OrderId + '</a>';
+                    }
+                }
+            }
+        });
+        
+        $('#OrdersPagingJTable').jtable('load');
 
     });
 </script>
