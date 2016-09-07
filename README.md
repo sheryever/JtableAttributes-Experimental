@@ -111,7 +111,8 @@ public class HomeController : Controller
 
     $(function() {
     
-        $('#OrdersJTable2').jtable({ fields: {
+        $('#OrdersJTable2').jtable({ 
+            fields: {
                 OrderId: {
                     display: function(data) {
                         return '<a href="/firmsDetail?firmName=' + data.record.OrderId + '">' + data.record.OrderId + '</a>';
