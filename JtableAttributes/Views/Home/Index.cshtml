@@ -29,7 +29,7 @@
         <div id="OrdersTableContainer"></div>
         
         <br/>
-        <table id="OrdersJTable" class="jt-config" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
+        <table id="OrdersJTable" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
             <tr>
                 <th data-jt-list="false">OrderId</th>
                 <th data-jt-width="40%" data-jt-column="ShipName" >Firm</th>
@@ -39,10 +39,10 @@
             </tr>
         </table>
         <br/>
-        <table id="OrdersJTable2" class="jt-config" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
+        <table id="OrdersJTable2" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
             <tr>
                 <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
-                <th data-jt-width="40%" data-jt-column="ShipName" data-jt-display="extraSettings.display">Ship Name</th>
+                <th data-jt-width="40%" data-jt-column="ShipName">Ship Name</th>
                 <th data-jt-width="20%" data-jt-column="ShipCountry">Ship Country</th>
                 <th data-jt-width="20%" data-jt-type="date" data-jt-column="OrderDate">Order Date</th>
                 <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
@@ -118,6 +118,11 @@
                 }
             } });
             $('#OrdersPagingJTable').jtable('load');
+
+            $('#OrdersJTable').jtable();
+            $('#OrdersJTable').jtable('load');
+            $('#OrdersJTable2').jtable();
+            $('#OrdersJTable2').jtable('load');;
         });
     </script>
 }
