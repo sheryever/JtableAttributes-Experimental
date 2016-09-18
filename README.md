@@ -153,10 +153,10 @@ public class HomeController : Controller
 <table id="OrdersJTable2"  data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
     <tr>
         <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
-        <th data-jt-width="40%" data-jt-column="ShipName">Ship Name</th>
-        <th data-jt-width="20%" data-jt-column="ShipCountry">Ship Country</th>
-        <th data-jt-width="20%" data-jt-type="date" data-jt-column="OrderDate">Order Date</th>
-        <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
+        <th data-jt-column="ShipName">Ship Name</th>
+        <th>Ship Country</th>
+        <th data-jt-type="date">Order Date</th>
+        <th data-jt-type="checkbox" data-jt-true="Done" data-jt-false="In progress">Shipped</th>
     </tr>
 </table>
 ```
