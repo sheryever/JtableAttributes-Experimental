@@ -1,7 +1,9 @@
 # JtableAttributes-Experimental
 
 An experiment to cofigure jtable from a html table.
+
 All jtable and jtable fields options are supported except functions / delegates / events.
+
 Jtable options must have the `data-jt-` prefix in html.
 
 ##### General Options
@@ -96,6 +98,24 @@ public class HomeController : Controller
   }
 }
 ```
+## JSON Result 
+```json
+{
+    "Result": "OK",
+    "Records": [
+        { "OrderId": 10, "ShipName": "Ship 10", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475067648987)\/", "Shipped": true },
+        { "OrderId": 11, "ShipName": "Ship 11", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475154048987)\/", "Shipped": true },
+        { "OrderId": 12, "ShipName": "Ship 12", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475240448987)\/", "Shipped": true },
+        { "OrderId": 13, "ShipName": "Ship 13", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475326848987)\/", "Shipped": true },
+        { "OrderId": 14, "ShipName": "Ship 14", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475413248987)\/", "Shipped": true },
+        { "OrderId": 15, "ShipName": "Ship 15", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475499648987)\/", "Shipped": true },
+        { "OrderId": 16, "ShipName": "Ship 16", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475586048987)\/", "Shipped": true },
+        { "OrderId": 17, "ShipName": "Ship 17", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475672448987)\/", "Shipped": true },
+        { "OrderId": 18, "ShipName": "Ship 18", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475758848987)\/", "Shipped": true },
+        { "OrderId": 19, "ShipName": "Ship 19", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475845248987)\/", "Shipped": true }]
+}
+```
+
 ## javascript code
 ```javascript
 <script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
