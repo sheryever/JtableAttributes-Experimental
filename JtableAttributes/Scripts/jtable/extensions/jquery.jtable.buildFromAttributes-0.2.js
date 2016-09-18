@@ -1,5 +1,5 @@
 ﻿/************************************************************************
-* DATA jtable html attributes extension for jTable  *
+* jtable html5 attributes extension for jTable  *
 * Author: Abu Ali Muhammad Sharjeel       *
 *************************************************************************/
 /* TODO
