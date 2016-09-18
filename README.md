@@ -150,7 +150,7 @@ public class HomeController : Controller
 ## Adding jtable other options (functions/events)
 ### Html
 ``` Html
-<table id="OrdersJTable2"  data-jt-title="Orders List 2" data-jt-list-action="Home/Orders">
+<table id="OrderJtableWithOtherOptions"  data-jt-title="Orders List 2" data-jt-list-action="Home/Orders">
     <tr>
         <th data-jt-list="false">OrderId</th>
         <th data-jt-column="ShipName">Ship Name</th>
