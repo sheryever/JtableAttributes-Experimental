@@ -200,7 +200,7 @@ Jtable options must have the `data-jt-` prefix in html.
 |defaultValue                     | default-value    |                 |
 |inputClass                       | input-class     |                 |
 |inputTitle                       | input-title     |                 |
-|key                              | key     |                 |
+|key                              | key     | If the `key` attribute is not used then first field will automatically become the key field   |
 |list                             | list    |                 |
 |listClass                        | list-class     |                 |
 |options                          | options    | Only Url is supported with jt-attributes               |
