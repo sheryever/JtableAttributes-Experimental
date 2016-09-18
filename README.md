@@ -1,6 +1,6 @@
 # JtableAttributes-Experimental
 
-An experiment to load jtable from a html table.
+An experiment to cofigure jtable from a html table.
 All jtable and jtable fields options are supported except functions / delegates / events
 
 ##### General Options
