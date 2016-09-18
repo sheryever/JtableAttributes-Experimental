@@ -70,8 +70,8 @@ Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts
         <th data-jt-list="false">OrderId</th>
         <th data-jt-width="40%" data-jt-column="ShipName">Firm</th>
         <th data-jt-width="20%">Ship Country</th>
-        <th data-jt-width="20%" data-jt-type="date">Order Date</th>
-        <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
+        <th data-jt-type="date">Order Date</th>
+        <th data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
     </tr>
 </table>
 <br/>
@@ -80,8 +80,8 @@ Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts
         <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
         <th data-jt-width="40%" data-jt-column="ShipName">Ship Name</th>
         <th data-jt-width="20%" data-jt-column="ShipCountry">Ship Country</th>
-        <th data-jt-width="20%" data-jt-type="date" data-jt-column="OrderDate">Order Date</th>
-        <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
+        <th data-jt-type="date" data-jt-column="OrderDate">Order Date</th>
+        <th data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
     </tr>
 </table>
 ```
@@ -104,14 +104,14 @@ public class HomeController : Controller
     "Result": "OK",
     "Records": [
         { "OrderId": 10, "ShipName": "Ship 10", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475067648987)\/", "Shipped": true },
-        { "OrderId": 11, "ShipName": "Ship 11", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475154048987)\/", "Shipped": true },
+        { "OrderId": 11, "ShipName": "Ship 11", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475154048987)\/", "Shipped": false },
         { "OrderId": 12, "ShipName": "Ship 12", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475240448987)\/", "Shipped": true },
-        { "OrderId": 13, "ShipName": "Ship 13", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475326848987)\/", "Shipped": true },
+        { "OrderId": 13, "ShipName": "Ship 13", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475326848987)\/", "Shipped": false },
         { "OrderId": 14, "ShipName": "Ship 14", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475413248987)\/", "Shipped": true },
         { "OrderId": 15, "ShipName": "Ship 15", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475499648987)\/", "Shipped": true },
-        { "OrderId": 16, "ShipName": "Ship 16", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475586048987)\/", "Shipped": true },
+        { "OrderId": 16, "ShipName": "Ship 16", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475586048987)\/", "Shipped": false },
         { "OrderId": 17, "ShipName": "Ship 17", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475672448987)\/", "Shipped": true },
-        { "OrderId": 18, "ShipName": "Ship 18", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475758848987)\/", "Shipped": true },
+        { "OrderId": 18, "ShipName": "Ship 18", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475758848987)\/", "Shipped": false },
         { "OrderId": 19, "ShipName": "Ship 19", "ShipCountry": "Pakistan", "OrderDate": "\/Date(1475845248987)\/", "Shipped": true }]
 }
 ```
