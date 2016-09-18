@@ -152,7 +152,7 @@ public class HomeController : Controller
 ``` Html
 <table id="OrdersJTable2"  data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
     <tr>
-        <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
+        <th data-jt-list="false">OrderId</th>
         <th data-jt-column="ShipName">Ship Name</th>
         <th>Ship Country</th>
         <th data-jt-type="date">Order Date</th>
@@ -173,9 +173,9 @@ public class HomeController : Controller
     
         $('#OrderJtableWithOtherOptions').jtable({
                 fields: {
-                    OrderId: {
+                    ShipName: {
                         display: function (data) {
-                            return '<a href="/firmsDetail?firmName=' + data.record.OrderId + '">' + data.record.OrderId + '</a>';
+                            return '<a href="/firmsDetail?firmName=' + data.record.OrderId + '">' + data.record.ShipName + '</a>';
                         }
                     }
                 },
