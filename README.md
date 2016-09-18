@@ -62,7 +62,7 @@ All jtable and jtable fields options are supported except functions / delegates 
 Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes-0.2.js)
 
 ```html
-<table id="OrdersJTable" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
+<table id="OrdersJTable" data-jt-title="Orders List" data-jt-list-action="Home/Orders">
     <tr>
         <th data-jt-list="false">OrderId</th>
         <th data-jt-width="40%" data-jt-column="ShipName">Firm</th>
@@ -72,7 +72,7 @@ Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts
     </tr>
 </table>
 <br/>
-<table id="OrdersJTable2" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
+<table id="OrdersJTable2" data-jt-title="Orders List 2" data-jt-list-action="Home/Orders">
     <tr>
         <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
         <th data-jt-width="40%" data-jt-column="ShipName">Ship Name</th>
@@ -118,7 +118,7 @@ public class HomeController : Controller
 ### jtable with paging
 
 ```html
-<table id="OrdersJTable3" class="jt-config" data-jt-title="Order with paging" data-jt-paging="true" data-jt-page-size="10"   data-jt-list-action="@Url.Action("OrdersWithPaging")">
+<table id="OrdersJTable3" class="jt-config" data-jt-title="Order with paging" data-jt-paging="true"   data-jt-list-action="Home/OrdersWithPaging">
     <thead>
         <tr>
             <th>OrderId</th>
@@ -150,7 +150,7 @@ public class HomeController : Controller
 ## Adding jtable other options (functions/events)
 ### Html
 ``` Html
-<table id="OrdersJTable2"  data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
+<table id="OrdersJTable2"  data-jt-title="Orders List 2" data-jt-list-action="Home/Orders">
     <tr>
         <th data-jt-list="false">OrderId</th>
         <th data-jt-column="ShipName">Ship Name</th>
