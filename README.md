@@ -2,66 +2,6 @@
 
 An experiment to cofigure jtable from a html table.
 
-All jtable and jtable fields options are supported except functions / delegates / events.
-
-Jtable options must have the `data-jt-` prefix in html.
-
-##### General Options
-| Jtable Options                  |  jt-attributes      | Remarks |
-|---------------------------------|---------------------|--------------------------------------|
-|actions.listAction               | list-action         | |
-|actions.createAction             | create-action       | |
-|actions.updateAction             | update-action       | |
-|actions.deleteAction             | delete-action       |   |
-|animationsEnabled                | animations-enabled  |  |
-|columnResizable                  | column-resizable     |                 |
-|columnSelectable                 | column-selectable     |                 |
-|defaultDateFormat                | default-date-format     |                 |
-|defaultSorting                   | default-sorting    |                 |
-|dialogShowEffect                 | dialog-show-effect     |                 |
-|dialogShowEffect                 | dialog-show-effect     |                 |
-|dialogHideEffect                 | animations-enabled     |                 |
-|gotoPageArea                     | goto-page-area    |                 |
-|jqueryuiTheme                    | jquery-ui-theme     |                 |
-|loadingAnimationDelay            | loading-animation-delay    |                 |
-|multiselect                      | multi-select     |                 |
-|multiSorting                     | multi-sorting      |                 |
-|paging                           | paging     |                 |
-|pageList                         | page-list    |                 |
-|pageSize                         | page-size    |                 |
-|pageSizes                        | page-sizes    | example = `<table id='mytable" page-size="20,40,60,80"> ... </table>`                 |
-|pageSizeChangeArea               | page-size-change-area    |                 |
-|saveUserPreferences              | save-user-preferences    |                 |
-|selecting                        | selecting     |                 |
-|selectingCheckboxes              | selecting-checkboxes    |                 |
-|selectOnRowClick                 | select-on-row-click    |                 |
-|sorting                          | sorting     |                 |
-|tableId                          | table-id     |                 |
-|title                            | title    |                 |
-|unAuthorizedRequestRedirectUrl   | un-authorized-request-redirect-url   |           .       |
-
-##### Fields options
-| Jtable Fields Options           |  jt-attributes      | Remarks |
-|---------------------------------|---------------------|--------------------------------------|
-|Field name                       | column  |  |
-|columnResizable                  | column-resizable     |                 |
-|create                           | create     |                 |
-|edit                             | edit     |                 |
-|defaultValue                     | default-value    |                 |
-|inputClass                       | input-class     |                 |
-|inputTitle                       | input-title     |                 |
-|key                              | key     |                 |
-|list                             | list    |                 |
-|listClass                        | list-class     |                 |
-|options                          | options    | Only Url is supported with jt-attributes               |
-|optionsSorting                   | options-sorting     |                 |
-|sorting                          | sorting      |                 |
-|title                            | title     |                 |
-|visibility                       | visibility    |                 |
-|width                            | width    |                 |
-|type                             | type    |  if the type is **checkbox** then use `jt-true` and `jt-false` attributes the configure the values options                  |
-
-
 Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes-0.2.js)
 
 ```html
@@ -211,3 +151,63 @@ public class HomeController : Controller
     });
 </script>
 ```
+
+All jtable and jtable fields options are supported except functions / delegates / events.
+
+Jtable options must have the `data-jt-` prefix in html.
+
+##### General Options
+| Jtable Options                  |  jt-attributes      | Remarks |
+|---------------------------------|---------------------|--------------------------------------|
+|actions.listAction               | list-action         | |
+|actions.createAction             | create-action       | |
+|actions.updateAction             | update-action       | |
+|actions.deleteAction             | delete-action       |   |
+|animationsEnabled                | animations-enabled  |  |
+|columnResizable                  | column-resizable     |                 |
+|columnSelectable                 | column-selectable     |                 |
+|defaultDateFormat                | default-date-format     |                 |
+|defaultSorting                   | default-sorting    |                 |
+|dialogShowEffect                 | dialog-show-effect     |                 |
+|dialogShowEffect                 | dialog-show-effect     |                 |
+|dialogHideEffect                 | animations-enabled     |                 |
+|gotoPageArea                     | goto-page-area    |                 |
+|jqueryuiTheme                    | jquery-ui-theme     |                 |
+|loadingAnimationDelay            | loading-animation-delay    |                 |
+|multiselect                      | multi-select     |                 |
+|multiSorting                     | multi-sorting      |                 |
+|paging                           | paging     |                 |
+|pageList                         | page-list    |                 |
+|pageSize                         | page-size    |                 |
+|pageSizes                        | page-sizes    | example = `<table id='mytable" page-size="20,40,60,80"> ... </table>`                 |
+|pageSizeChangeArea               | page-size-change-area    |                 |
+|saveUserPreferences              | save-user-preferences    |                 |
+|selecting                        | selecting     |                 |
+|selectingCheckboxes              | selecting-checkboxes    |                 |
+|selectOnRowClick                 | select-on-row-click    |                 |
+|sorting                          | sorting     |                 |
+|tableId                          | table-id     |                 |
+|title                            | title    |                 |
+|unAuthorizedRequestRedirectUrl   | un-authorized-request-redirect-url   |           .       |
+
+##### Fields options
+| Jtable Fields Options           |  jt-attributes      | Remarks |
+|---------------------------------|---------------------|--------------------------------------|
+|Field name                       | column  |  |
+|columnResizable                  | column-resizable     |                 |
+|create                           | create     |                 |
+|edit                             | edit     |                 |
+|defaultValue                     | default-value    |                 |
+|inputClass                       | input-class     |                 |
+|inputTitle                       | input-title     |                 |
+|key                              | key     |                 |
+|list                             | list    |                 |
+|listClass                        | list-class     |                 |
+|options                          | options    | Only Url is supported with jt-attributes               |
+|optionsSorting                   | options-sorting     |                 |
+|sorting                          | sorting      |                 |
+|title                            | title     |                 |
+|visibility                       | visibility    |                 |
+|width                            | width    |                 |
+|type                             | type    |  if the type is **checkbox** then use `jt-true` and `jt-false` attributes the configure the values options                  |
+
