@@ -71,7 +71,7 @@ Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts
         <th data-jt-width="40%" data-jt-column="ShipName">Firm</th>
         <th data-jt-width="20%">Ship Country</th>
         <th data-jt-type="date">Order Date</th>
-        <th data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
+        <th data-jt-type="checkbox">Shipped</th>
     </tr>
 </table>
 <br/>
