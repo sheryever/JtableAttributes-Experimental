@@ -79,7 +79,7 @@ public class HomeController : Controller
 ### jtable with paging
 
 ```html
-<table id="OrdersJTable3" class="jt-config" data-jt-title="Order with paging" data-jt-paging="true"   data-jt-list-action="Home/OrdersWithPaging">
+<table id="OrdersJTable3" data-jt-title="Order with paging" data-jt-paging="true"   data-jt-list-action="Home/OrdersWithPaging">
     <thead>
         <tr>
             <th>OrderId</th>
