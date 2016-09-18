@@ -172,13 +172,18 @@ public class HomeController : Controller
     $(function() {
     
         $('#OrderJtableWithOtherOptions').jtable({
-        	fields: {
-            	ShipName: {
-                	display:  function(data){
-                      return '<a href="/firmsDetail?firmName=' + data.record.ShipName + '">' + data.record.ShipName +'</a>';
+                fields: {
+                    OrderId: {
+                        display: function (data) {
+                            return '<a href="/firmsDetail?firmName=' + data.record.OrderId + '">' + data.record.OrderId + '</a>';
+                        }
+                    }
+                },
+                rowInserted: function(event, data){
+                    if (data.record.Shipped) {
+                        data.row.css('color', 'green');
                     }
                 }
-            }
         });
         $('#OrderJtableWithOtherOptions').jtable('load');
 
