@@ -109,14 +109,21 @@
 
             //$.hik.jtable.loadFromAttributes();
 
-            $('#OrdersPagingJTable').jtable({ fields: {
-                OrderId: {
-                    display: function(data) {
-                        return '<a href="/firmsDetail?firmName=' + data.record.OrderId + '">' + data.record.OrderId + '</a>';
+            $('#OrdersPagingJTable').jtable({
+                fields: {
+                    OrderId: {
+                        display: function (data) {
+                            return '<a href="/firmsDetail?firmName=' + data.record.OrderId + '">' + data.record.OrderId + '</a>';
 
+                        }
+                    }
+                },
+                rowInserted: function(event, data){
+                    if (data.record.Shipped) {
+                        data.row.css('color', 'green');
                     }
                 }
-            } });
+            });
             $('#OrdersPagingJTable').jtable('load');
 
             $('#OrdersJTable').jtable();
