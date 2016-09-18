@@ -1,11 +1,68 @@
 # JtableAttributes-Experimental
 
 An experiment to load jtable from a html table.
+All jtable and jtable fields options are supported except functions / delegates / events
 
-Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes.js)
+##### General Options
+| Jtable Options                  |  jt-attributes      | Remarks |
+|---------------------------------|---------------------|--------------------------------------|
+|actions.listAction               | list-action         | |
+|actions.createAction             | create-action       | |
+|actions.updateAction             | update-action       | |
+|actions.deleteAction             | delete-action       |   |
+|animationsEnabled                | animations-enabled  |  |
+|columnResizable                  | column-resizable     |                 |
+|columnSelectable                 | column-selectable     |                 |
+|defaultDateFormat                | default-date-format     |                 |
+|defaultSorting                   | default-sorting    |                 |
+|dialogShowEffect                 | dialog-show-effect     |                 |
+|dialogShowEffect                 | dialog-show-effect     |                 |
+|dialogHideEffect                 | animations-enabled     |                 |
+|gotoPageArea                     | goto-page-area    |                 |
+|jqueryuiTheme                    | jquery-ui-theme     |                 |
+|loadingAnimationDelay            | loading-animation-delay    |                 |
+|multiselect                      | multi-select     |                 |
+|multiSorting                     | multi-sorting      |                 |
+|paging                           | paging     |                 |
+|pageList                         | page-list    |                 |
+|pageSize                         | page-size    |                 |
+|pageSizes                        | page-sizes    | example = `<table id='mytable" page-size="20,40,60,80"> ... </table>`                 |
+|pageSizeChangeArea               | page-size-change-area    |                 |
+|saveUserPreferences              | save-user-preferences    |                 |
+|selecting                        | selecting     |                 |
+|selectingCheckboxes              | selecting-checkboxes    |                 |
+|selectOnRowClick                 | select-on-row-click    |                 |
+|sorting                          | sorting     |                 |
+|tableId                          | table-id     |                 |
+|title                            | title    |                 |
+|unAuthorizedRequestRedirectUrl   | un-authorized-request-redirect-url   |           .       |
+
+##### Fields options
+| Jtable Fields Options           |  jt-attributes      | Remarks |
+|---------------------------------|---------------------|--------------------------------------|
+|Field name                       | column  |  |
+|columnResizable                  | column-resizable     |                 |
+|create                           | create     |                 |
+|edit                             | edit     |                 |
+|defaultValue                     | default-value    |                 |
+|inputClass                       | input-class     |                 |
+|inputTitle                       | input-title     |                 |
+|key                              | key     |                 |
+|list                             | list    |                 |
+|listClass                        | list-class     |                 |
+|options                          | options    | Only Url is supported with jt-attributes               |
+|optionsSorting                   | options-sorting     |                 |
+|sorting                          | sorting      |                 |
+|title                            | title     |                 |
+|visibility                       | visibility    |                 |
+|width                            | width    |                 |
+|type                             | type    |  if the type is **checkbox** then use `jt-true` and `jt-false` attributes the configure the values options                  |
+
+
+Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes-0.2.js)
 
 ```html
-<table id="OrdersJTable" class="jt-config" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
+<table id="OrdersJTable" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
     <tr>
         <th data-jt-list="false">OrderId</th>
         <th data-jt-width="40%" data-jt-column="ShipName">Firm</th>
@@ -15,7 +72,7 @@ Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts
     </tr>
 </table>
 <br/>
-<table id="OrdersJTable2" class="jt-config" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
+<table id="OrdersJTable2" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
     <tr>
         <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
         <th data-jt-width="40%" data-jt-column="ShipName">Ship Name</th>
@@ -42,13 +99,17 @@ public class HomeController : Controller
 ```javascript
 <script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
 <script src="~/Scripts/jtable/jquery.jtable.min.js"></script>
-<script src="~/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes.js"></script>
+<script src="~/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes-0.2.js"></script>
 
 <script type="text/javascript">
 
     $(function() {
     
-        $.hik.jtable.loadFromAttributes('.jt-config');
+		$('#OrdersJTable').jtable();
+        $('#OrdersJTable').jtable('load');
+        
+        $('#OrdersJTable2').jtable();
+        $('#OrdersJTable2').jtable('load');
 
     });
 </script>
@@ -86,13 +147,13 @@ public class HomeController : Controller
 }
 ```
 
-## Customizing list data using `data-jt-display` attribute in `th`
+## Adding jtable options other options (functions/events)
 ### Html
 ``` Html
-<table id="OrdersJTable2" class="jt-config" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
+<table id="OrdersJTable2"  data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
     <tr>
         <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
-        <th data-jt-width="40%" data-jt-column="ShipName" data-jt-display="extraSettigns.firmNameDisplay">Ship Name</th>
+        <th data-jt-width="40%" data-jt-column="ShipName">Ship Name</th>
         <th data-jt-width="20%" data-jt-column="ShipCountry">Ship Country</th>
         <th data-jt-width="20%" data-jt-type="date" data-jt-column="OrderDate">Order Date</th>
         <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
@@ -104,18 +165,22 @@ public class HomeController : Controller
 ```javascript
 <script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
 <script src="~/Scripts/jtable/jquery.jtable.min.js"></script>
-<script src="~/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes.js"></script>
+<script src="~/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes-0.2.js"></script>
 
 <script type="text/javascript">
-  var extraSettings = {
-    firmNameDisplay: function(data){
-      return '<a href="/firmsDetail?firmName=' + data.record.ShipName + '">' + data.record.ShipName +'</a>';
-    }
-  };
 
     $(function() {
     
-        $.hik.jtable.loadFromAttributes('.jt-config');
+        $('#OrderJtableWithOtherOptions').jtable({
+        	fields: {
+            	ShipName: {
+                	display:  function(data){
+                      return '<a href="/firmsDetail?firmName=' + data.record.ShipName + '">' + data.record.ShipName +'</a>';
+                    }
+                }
+            }
+        });
+        $('#OrderJtableWithOtherOptions').jtable('load');
 
     });
 </script>

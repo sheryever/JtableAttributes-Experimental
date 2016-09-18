@@ -3,10 +3,10 @@
 * Author: Abu Ali Muhammad Sharjeel       *
 *************************************************************************/
 /* TODO
- * Read the attributes from the table
- * Create jtable configuration
- * Accept html Jtable as configuration 
- * Allow extend the jtable configuration if it is coming as object to
+ * Read the attributes from the table  (done)
+ * Create jtable configuration (done)
+ * Accept html Jtable as configuration   (done)
+ * Allow extend the jtable configuration if it is coming as object  (done)
  * 
  */
 
@@ -77,10 +77,8 @@
 
         var jtableId = $table.attr('id') ? $table.attr('id') : "jtableContainer$" + (new Date()).valueOf();
 
-        this.tableId = jtableId + "Table";
 
-        this.jtableContainerId = settings.val("container-id", jtableId);
-        this.animationsEnabled = settings.val("animations-enabled", true);
+        this.jtableContainerId = jtableId;
         this.animationsEnabled = settings.val("animations-enabled", true);
         this.columnResizable = settings.val("column-resizable", true);
         this.columnSelectable = settings.val("column-selectable", true);
@@ -90,6 +88,7 @@
         this.dialogShowEffect = settings.val("dialog-show-effect", "fade");
         this.dialogHideEffect = settings.val("animations-enabled", "fade");
         this.gotoPageArea = settings.val("goto-page-area", "combobox");
+
         this.jqueryuiTheme = settings.val("jquery-ui-theme", false);
         this.loadingAnimationDelay = settings.val("loading-animation-delay", 500);
         this.multiselect = settings.val("multi-select", false);
@@ -110,10 +109,11 @@
         this.pageSizeChangeArea = settings.val("page-size-change-area", true);
         this.saveUserPreferences = settings.val("save-user-preferences", true);
         this.selecting = settings.val("selecting", false);
-        this.selectingCheckboxes = settings.val("selecting-check-boxes", false);
-        this.selectOnRowClick = settings.val("select-On-row-click", true);
+        this.selectingCheckboxes = settings.val("selecting-checkboxes", false);
+        this.selectOnRowClick = settings.val("select-on-row-click", true);
         //this.showCloseButton = "";    version 2
         this.sorting = settings.val("sorting", false);
+        this.tableId = settings.val("table-id", jtableId + "Table");
         this.title = settings.val("title", undefined);
         this.unAuthorizedRequestRedirectUrl = settings.val("un-authorized-request-redirect-url", undefined);
 
