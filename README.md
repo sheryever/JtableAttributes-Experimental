@@ -147,7 +147,7 @@ public class HomeController : Controller
 }
 ```
 
-## Adding jtable options other options (functions/events)
+## Adding jtable other options (functions/events)
 ### Html
 ``` Html
 <table id="OrdersJTable2"  data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
