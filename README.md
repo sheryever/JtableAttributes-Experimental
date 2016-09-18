@@ -1,7 +1,8 @@
 # JtableAttributes-Experimental
 
 An experiment to cofigure jtable from a html table.
-All jtable and jtable fields options are supported except functions / delegates / events
+All jtable and jtable fields options are supported except functions / delegates / events.
+Jtable options must have the `data-jt-` prefix in html.
 
 ##### General Options
 | Jtable Options                  |  jt-attributes      | Remarks |
