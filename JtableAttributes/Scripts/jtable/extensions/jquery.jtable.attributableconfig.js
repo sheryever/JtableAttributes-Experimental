@@ -1,14 +1,6 @@
 ﻿/************************************************************************
-* jtable html5 attributes extension for jTable  *
-* Author: Abu Ali Muhammad Sharjeel       *
+* jtable html5 data attributes extension for attributable configuration *
 *************************************************************************/
-/* TODO
- * Read the attributes from the table  (done)
- * Create jtable configuration (done)
- * Accept html Jtable as configuration   (done)
- * Allow extend the jtable configuration if it is coming as object  (done)
- * 
- */
 
 (function ($) {
     //Reference to base object members
@@ -16,6 +8,7 @@
         _create: $.hik.jtable.prototype._create
     };
 
+	// Jtable settings reader
     var JtSettings = function($element, settings) {
         this.$element = $element;
         this.settings = settings;
@@ -36,6 +29,7 @@
         }
     }
 
+	// Jtable field configuration 
     var JtableFieldOptions = function($th) {
 
         var self = this;
@@ -55,7 +49,7 @@
         this.options = this.jtSettings.val("options", undefined);  // url only
         this.optionsSorting = this.jtSettings.val("options-sorting", undefined);
         this.sorting = this.jtSettings.val("sorting", true);;
-        this.title = this.jtSettings.val("title", undefined);
+        this.title = this.jtSettings.val("title", $th.text());
 
         this.visibility = this.jtSettings.val("visibility", "visible");
         this.width = this.jtSettings.val("width", "10%");
@@ -71,6 +65,7 @@
         });
     };
 
+	// Jtable configuration 
     var JtableOptions = function($table) {
         var self = this;
         var settings = new JtSettings($table, self);
@@ -167,11 +162,13 @@
                 base._create.apply(this, arguments);
             },
 
+			/* Create the jtable from attributes.
+			**************************************************************************/
             _createFromAttributes: function($table, otherOptions) {
                 var tableOptions = new JtableOptions($table);
                 $table.html('');
 
-                var jtableContainer = '<div  id="' + tableOptions.jtableContainerId + '" ></div>';
+                var jtableContainer = '<div id="' + tableOptions.jtableContainerId + '"></div>';
 
                 $table
 				    .replaceWith(jtableContainer);
@@ -181,9 +178,7 @@
                 //console.log(otherOptions);
                // console.log(tableOptions);
 
-
                 $('#' + tableOptions.jtableContainerId).jtable(otherOptions);
-
             }
         });
 

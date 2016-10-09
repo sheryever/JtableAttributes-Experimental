@@ -260,7 +260,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jtable\extensions\jquery.jtable.aspnetpagemethods.js" />
     <Content Include="Scripts\jtable\extensions\jquery.jtable.aspnetpagemethods.min.js" />
-    <Content Include="Scripts\jtable\extensions\jquery.jtable.buildFromAttributes-0.2.js" />
+    <Content Include="Scripts\jtable\extensions\jquery.jtable.attributableconfig.js" />
     <Content Include="Scripts\jtable\external\json2.js" />
     <Content Include="Scripts\jtable\external\json2.min.js" />
     <Content Include="Scripts\jtable\jquery.jtable.js" />
@@ -427,7 +427,6 @@
     <Content Include="Scripts\jtable\themes\jtable_theme_base.less" />
     <Content Include="Scripts\jtable\themes\jqueryui\jtable_jqueryui.less" />
     <Content Include="Scripts\jtable\themes\basic\jtable_basic.less" />
-    <Content Include="Scripts\jtable\extensions\jquery.jtable.buildFromAttributes.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

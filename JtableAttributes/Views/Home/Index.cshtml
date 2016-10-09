@@ -2,8 +2,8 @@
     ViewBag.Title = "Home Page";
 }
 
-<link href="~/Content/themes/base/minified/jquery-ui.min.css" rel="stylesheet"/>
-<link href="~/Scripts/jtable/themes/metro/blue/jtable.min.css" rel="stylesheet"/>
+<link href="~/Content/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" />
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
@@ -14,7 +14,11 @@
 <div class="row">
     <div class="col-md-12">
         <h2>Getting started</h2>
-        <table id="OrdersPagingJTable"  data-jt-title="Order with paging" data-jt-paging="true" data-jt-page-size="10" data-jt-list-action="@Url.Action("OrdersWithPaging")">
+
+        <div id="OrdersTableContainer"></div>
+        <br />
+
+        <table id="OrdersPagingJTable" data-jt-title="Order with paging" data-jt-paging="true" data-jt-page-size="10" data-jt-list-action="@Url.Action("OrdersWithPaging")">
             <thead>
                 <tr>
                     <th>OrderId</th>
@@ -25,20 +29,17 @@
                 </tr>
             </thead>
         </table>
-        <br/>
-        <div id="OrdersTableContainer"></div>
-        
-        <br/>
+        <br />
         <table id="OrdersJTable" data-jt-title="Orders List" data-jt-list-action="@Url.Action("Orders")">
             <tr>
                 <th data-jt-list="false">OrderId</th>
-                <th data-jt-width="40%" data-jt-column="ShipName" >Firm</th>
+                <th data-jt-width="40%" data-jt-column="ShipName">Firm</th>
                 <th data-jt-width="20%">Ship Country</th>
                 <th data-jt-width="20%" data-jt-type="date">Order Date</th>
                 <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
             </tr>
         </table>
-        <br/>
+        <br />
         <table id="OrdersJTable2" data-jt-title="Orders List 2" data-jt-list-action="@Url.Action("Orders")">
             <tr>
                 <th data-jt-key="true" data-jt-list="false" data-jt-column="OrderId">OrderId</th>
@@ -48,29 +49,30 @@
                 <th data-jt-width="20%" data-jt-type="checkbox" data-jt-true="True" data-jt-false="False">Shipped</th>
             </tr>
         </table>
-        <br/>
-        <br/>
-        
+        <br />
+        <br />
+
     </div>
 </div>
 
 @section scripts{
     <script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
     <script src="~/Scripts/jtable/jquery.jtable.js"></script>
-    <script src="~/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes-0.2.js"></script>
+    <script src="~/Scripts/jtable/extensions/jquery.jtable.attributableconfig.js"></script>
 
     <script type="text/javascript">
 
         var extraSettings = {
-            display: function(data) {
+            display: function (data) {
                 return '<a href="/firmsDetail?firmName=' + data.record.ShipName + '">' + data.record.ShipName + '</a>';
             }
         }
 
-        $(function() {
+        $(function () {
             $('#OrdersTableContainer')
                 .jtable({
                     title: 'Orders list',
+                    rtl: true,
                     paging: false, //Enable paging
                     //pageSize: 10, //Set page size (default: 10)
                     sorting: false, //Enable sorting
@@ -118,7 +120,7 @@
                         }
                     }
                 },
-                rowInserted: function(event, data){
+                rowInserted: function (event, data) {
                     if (data.record.Shipped) {
                         data.row.css('color', 'green');
                     }
