@@ -5,7 +5,8 @@
 (function ($) {
     //Reference to base object members
     var base = {
-        _create: $.hik.jtable.prototype._create
+        _create: $.hik.jtable.prototype._create,
+        _init: $.hik.jtable.prototype._init
     };
 
 	// Jtable settings reader
@@ -153,18 +154,28 @@
             /* Overrides base method to create reload button.
              *************************************************************************/
 
+            _init: function () {
+                console.log(this.options);
+                base._init.apply(this, arguments);
+            },
+
             _create: function () {
                 if (this.element.is('table')) {
                     var self = this;
+                    //console.log("table", this.options);
                     this._createFromAttributes($('#' + this.element.attr('id')), self.options);
                     return;
                 }
+                console.log(this);
+                //console.log("div", this.options, this.element);
+
                 base._create.apply(this, arguments);
             },
 
 			/* Create the jtable from attributes.
 			**************************************************************************/
-            _createFromAttributes: function($table, otherOptions) {
+            _createFromAttributes: function ($table, otherOptions) {
+                
                 var tableOptions = new JtableOptions($table);
                 $table.html('');
 
@@ -172,13 +183,14 @@
 
                 $table
 				    .replaceWith(jtableContainer);
+
                 if (otherOptions) {
-                    $.extend(true, otherOptions, tableOptions);
+                    tableOptions = $.extend(true, tableOptions, otherOptions);
                 }
                 //console.log(otherOptions);
                // console.log(tableOptions);
 
-                $('#' + tableOptions.jtableContainerId).jtable(otherOptions);
+                $('#' + tableOptions.jtableContainerId).jtable(tableOptions);
             }
         });
 

@@ -1316,6 +1316,7 @@ THE SOFTWARE.
 }(jQuery));
 
 
+
 /************************************************************************
 * Some UTULITY methods used by jTable                                   *
 *************************************************************************/
@@ -4711,7 +4712,7 @@ THE SOFTWARE.
                         //Calculate new widths in pixels
                         var mouseChangeX = upevent.pageX - self._currentResizeArgs.mouseStartX;
                         var currentColumnNewWidth = (self.options.rtl ? self._currentResizeArgs.currentColumnStartWidth - mouseChangeX : self._currentResizeArgs.currentColumnStartWidth + mouseChangeX);
-                        var currentColumnFinalWidth = self._normalizeNumber(columnNewWidth, self._currentResizeArgs.minWidth, self._currentResizeArgs.maxWidth)
+                        var currentColumnFinalWidth = self._normalizeNumber(currentColumnNewWidth, self._currentResizeArgs.minWidth, self._currentResizeArgs.maxWidth)
                         //var currentColumnFinalWidth = self._normalizeNumber(self._currentResizeArgs.currentColumnStartWidth + mouseChangeX, self._currentResizeArgs.minWidth, self._currentResizeArgs.maxWidth);
                         var nextColumnFinalWidth = $nextColumnHeader.outerWidth() + (self._currentResizeArgs.currentColumnStartWidth - currentColumnFinalWidth);
 
