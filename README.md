@@ -2,7 +2,7 @@
 
 An experiment to cofigure jtable from a html table.
 
-Jtable extension [jquery.jtable.buildFromAttributes.js](JtableAttributes/Scripts/jtable/extensions/jquery.jtable.buildFromAttributes-0.2.js)
+Jtable extension [jquery.jtable.attributableconfig.js](JtableAttributes/Scripts/jtable/extensions/jquery.jtable.attributableconfig.js)
 
 ```html
 <table id="OrdersJTable" data-jt-title="Orders List" data-jt-list-action="Home/Orders">
